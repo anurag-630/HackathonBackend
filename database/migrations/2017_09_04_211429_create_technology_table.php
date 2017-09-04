@@ -13,7 +13,14 @@ class CreateTechnologyTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('technology', function(Blueprint $table)
+        {
+            $table->increments('id');
+            $table->unsignedInteger('signup_id');
+            $table->string('technology');
+            $table->timestamps();
+            $table->foreign('signup_id')->references('id')->on('signup')->onDelete('cascade');
+        });
     }
 
     /**
@@ -23,6 +30,7 @@ class CreateTechnologyTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('technology');
+
     }
 }

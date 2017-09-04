@@ -6,6 +6,7 @@ use App\Api\V1\Requests\LoginRequest;
 use App\Api\V1\Requests\SignupRequest;
 use App\Api\V1\Transformers\LoginTransformer;
 use App\Api\V1\Transformers\QuestionTransformerAll;
+use App\Api\V1\Transformers\TechnologyTransformer;
 use App\Signup;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Routing\Controller;
@@ -43,5 +44,10 @@ class SignupController extends Controller
     public function questionsAll($id){
         $user=Signup::find($id);
         return $this->response->collection($user->question,new QuestionTransformerAll());
+    }
+
+    public function technology($id){
+        $user=Signup::find($id);
+        return $this->response->collection($user->technology,new TechnologyTransformer());
     }
 }

@@ -20,4 +20,9 @@ class Signup extends Model
     {
         return $this->hasMany('App\Question');
     }
+
+    public function technology()
+    {
+        return $this->hasMany('App\Technology');
+    }
 }
