@@ -5,6 +5,7 @@ namespace App\Api\v1\Controllers;
 use App\Api\V1\Requests\LoginRequest;
 use App\Api\V1\Requests\SignupRequest;
 use App\Api\V1\Transformers\LoginTransformer;
+use App\Api\V1\Transformers\QuestionTransformerAll;
 use App\Signup;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Routing\Controller;
@@ -37,5 +38,10 @@ class SignupController extends Controller
     {
         $user = Signup::where('email', $request->getEmail())->where('password', $request->getPassword())->where('login_as', $request->getLoginAs())->first();
         return $this->response->item($user, new LoginTransformer());
+    }
+
+    public function questionsAll($id){
+        $user=Signup::find($id);
+        return $this->response->collection($user->question,new QuestionTransformerAll());
     }
 }

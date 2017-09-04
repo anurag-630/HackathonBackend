@@ -13,8 +13,8 @@ interface AddQuestion
 {
     public function senderID();
 
-    public function sender();
-
     public function question();
+
+    public function tech();
 
 }

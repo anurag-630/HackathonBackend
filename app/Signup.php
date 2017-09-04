@@ -15,4 +15,9 @@ use Illuminate\Database\Eloquent\Model;
 class Signup extends Model
 {
     protected $table = 'signup';
+
+    public function question()
+    {
+        return $this->hasMany('App\Question');
+    }
 }
