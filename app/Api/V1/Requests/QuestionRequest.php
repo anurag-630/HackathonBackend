@@ -13,7 +13,7 @@ use App\Contracts\AddQuestion;
 
 class QuestionRequest extends Request implements AddQuestion
 {
-    const SENDER_ID='signup_id';
+    const SENDER_ID='student_id';
     const QUESTION='question';
     const TECHNOLOGY='technology';
 

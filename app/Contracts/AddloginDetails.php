@@ -15,5 +15,4 @@ interface AddloginDetails
 
     public function getPassword();
 
-    public function getLoginAs();
 }

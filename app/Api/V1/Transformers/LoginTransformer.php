@@ -9,18 +9,18 @@
 namespace App\Api\V1\Transformers;
 
 
-use App\Signup;
+use App\Mentor;
+use App\Student;
 use League\Fractal\TransformerAbstract;
 
 class LoginTransformer extends TransformerAbstract
 {
-    public function transform(Signup $signup)
+    public function transform(Mentor $signup)
     {
         return [
             'id' => (int)$signup->id,
             'name' => $signup->name,
             'email' => $signup->email,
-            'login_as' => $signup->login_as,
             'validation' => 'successfull',
             'created_at' => $signup->created_at->toDateTimeString(),
             'updated_at' => $signup->updated_at->toDateTimeString()

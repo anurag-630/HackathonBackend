@@ -18,9 +18,9 @@ class QuestionTransformerAll extends TransformerAbstract
     {
         return [
             'ques_id' => (int)$question->ques_id,
-            'signup_id' => (int)$question->signup_id,
+            'student_id' => (int)$question->student_id,
             'question' => $question->question,
-            'tech' => $question->technology,
+            'technology' => $question->technology,
             'created_at' => $question->created_at->toDateTimeString(),
             'updated_at' => $question->updated_at->toDateTimeString()
         ];

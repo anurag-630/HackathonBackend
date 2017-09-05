@@ -23,7 +23,7 @@ class QuestionController extends Controller
     public function store(QuestionRequest $request)
     {
         $question = new Question();
-        $question->signup_id = $request->senderID();
+        $question->student_id = $request->senderID();
         $question->question = $request->question();
         $question->technology = $request->tech();
         $question->save();

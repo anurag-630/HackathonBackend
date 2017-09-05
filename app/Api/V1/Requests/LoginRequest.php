@@ -14,7 +14,6 @@ use App\Contracts\AddloginDetails;
 class LoginRequest extends Request implements AddloginDetails
 {
     const EMAIL = 'email';
-    const LOGIN_AS = 'login_as';
     const PASSWORD = 'password';
 
     public function getEmail()
@@ -23,11 +22,6 @@ class LoginRequest extends Request implements AddloginDetails
         return $this->get(self::EMAIL);
     }
 
-    public function getLoginAs()
-    {
-        // TODO: Implement getLoginAs() method.
-        return $this->get(self::LOGIN_AS);
-    }
 
     public function getPassword()
     {
