@@ -1,0 +1,41 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: user
+ * Date: 06-Sep-17
+ * Time: 2:41 AM
+ */
+
+namespace App\Api\V1\Transformers;
+
+
+use App\Answer;
+use League\Fractal\TransformerAbstract;
+
+class AnswerTransformer extends TransformerAbstract
+{
+    protected $defaultIncludes = [
+        'mentorDetails'
+    ];
+
+    public function transform(Answer $signup)
+    {
+        return [
+            'id' => (int)$signup->id,
+            'question_id' => $signup->question_id,
+            'answer_by' => $signup->answer_by,
+            'answer' => $signup->answer,
+            'upvote' => (int)$signup->upvote,
+            'downvote' => (int)$signup->downvote,
+            'created_at' => $signup->created_at->toDateTimeString(),
+            'updated_at' => $signup->updated_at->toDateTimeString()
+        ];
+    }
+
+    public function includeMentorDetails(Answer $answer)
+    {
+        $mentor = $answer->mentor;
+        return $this->collection($mentor,new MentorTransformer());
+    }
+
+}
