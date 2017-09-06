@@ -13,7 +13,7 @@ use App\Mentor;
 use App\Student;
 use League\Fractal\TransformerAbstract;
 
-class UserDetailTransformer extends TransformerAbstract
+class MentorDetailTransformer extends TransformerAbstract
 {
     public function transform(Mentor $signup)
     {

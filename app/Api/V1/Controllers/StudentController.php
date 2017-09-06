@@ -6,8 +6,9 @@ use App\Api\V1\Requests\LoginRequest;
 use App\Api\V1\Requests\StudentRequest;
 use App\Api\V1\Transformers\LoginTransformer;
 use App\Api\V1\Transformers\QuestionTransformerAll;
+use App\Api\V1\Transformers\StudentDetailTransformer;
 use App\Api\V1\Transformers\StudentTechnologyTransformer;
-use App\Api\V1\Transformers\UserDetailTransformer;
+use App\Api\V1\Transformers\MentorDetailTransformer;
 use App\Student;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Routing\Controller;
@@ -57,7 +58,7 @@ class StudentController extends Controller
     public function student()
     {
         $user = Student::all();
-        return $this->response->collection($user, new UserDetailTransformer());
+        return $this->response->collection($user, new StudentDetailTransformer());
     }
 
 }

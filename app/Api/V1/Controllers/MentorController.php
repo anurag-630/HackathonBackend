@@ -13,7 +13,7 @@ use App\Api\V1\Requests\LoginRequest;
 use App\Api\V1\Requests\MentorRequest;
 use App\Api\V1\Transformers\LoginTransformer;
 use App\Api\V1\Transformers\MentorTransformer;
-use App\Api\V1\Transformers\UserDetailTransformer;
+use App\Api\V1\Transformers\MentorDetailTransformer;
 use App\Mentor;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Routing\Controller;
@@ -41,7 +41,7 @@ class MentorController extends Controller
     public function mentor()
     {
         $user = Mentor::all();
-        return $this->response->collection($user, new UserDetailTransformer());
+        return $this->response->collection($user, new MentorDetailTransformer());
     }
 
 }
