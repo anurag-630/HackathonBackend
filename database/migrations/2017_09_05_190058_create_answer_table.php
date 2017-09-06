@@ -15,15 +15,15 @@ class CreateAnswerTable extends Migration
     {
         Schema::create('answer', function(Blueprint $table)
         {
-            $table->increments('ans_id');
+            $table->increments('id');
             $table->unsignedInteger('question_id');
             $table->string('answer');
-            $table->unsignedInteger('answer_by');
+            $table->unsignedInteger('mentor_id');
             $table->unsignedInteger('upvote')->default(0);
             $table->unsignedInteger('downvote')->default(0);
             $table->timestamps();
             $table->foreign('question_id')->references('ques_id')->on('question')->onDelete('cascade');
-            $table->foreign('answer_by')->references('id')->on('mentor')->onDelete('cascade');
+            $table->foreign('mentor_id')->references('id')->on('mentor')->onDelete('cascade');
 
         });
     }
@@ -36,6 +36,5 @@ class CreateAnswerTable extends Migration
     public function down()
     {
         Schema::dropIfExists('answer');
-
     }
 }

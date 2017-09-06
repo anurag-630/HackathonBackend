@@ -10,12 +10,13 @@ namespace App\Api\V1\Transformers;
 
 
 use App\Answer;
+use App\Mentor;
 use League\Fractal\TransformerAbstract;
 
 class AnswerTransformer extends TransformerAbstract
 {
     protected $defaultIncludes = [
-        'mentorDetails'
+        'mentor'
     ];
 
     public function transform(Answer $signup)
@@ -23,7 +24,7 @@ class AnswerTransformer extends TransformerAbstract
         return [
             'id' => (int)$signup->id,
             'question_id' => $signup->question_id,
-            'answer_by' => $signup->answer_by,
+            'mentor_id' => $signup->mentor_id,
             'answer' => $signup->answer,
             'upvote' => (int)$signup->upvote,
             'downvote' => (int)$signup->downvote,
@@ -32,10 +33,12 @@ class AnswerTransformer extends TransformerAbstract
         ];
     }
 
-    public function includeMentorDetails(Answer $answer)
+    public function includeMentor(Answer $answer)
     {
         $mentor = $answer->mentor;
-        return $this->collection($mentor,new MentorTransformer());
+        return $this->item($mentor,new MentorDetailTransformer());
     }
+
+
 
 }

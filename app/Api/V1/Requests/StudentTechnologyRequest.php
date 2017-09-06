@@ -13,8 +13,8 @@ use App\Contracts\AddStudentTechnology;
 
 class StudentTechnologyRequest extends Request implements AddStudentTechnology
 {
-    const SENDER_ID = 'sender_id';
-    const TECHNOLOGY = 'technology';
+    const STUDENT_ID = 'student_id';
+    const TECHNOLOGY = 'technology_id';
 
     public function getTechnology()
     {
@@ -22,9 +22,10 @@ class StudentTechnologyRequest extends Request implements AddStudentTechnology
         return $this->get(self::TECHNOLOGY);
     }
 
-    public function getSenderID()
+    public function getStudentID()
     {
         // TODO: Implement getSenderID() method.
-        return $this->get(self::SENDER_ID);
+        return $this->get(self::STUDENT_ID);
+
     }
 }

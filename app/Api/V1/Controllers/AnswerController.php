@@ -24,7 +24,7 @@ class AnswerController extends Controller
         $answer = new Answer();
         $answer->question_id = $request->getQuestionID();
         $answer->answer = $request->getAnswer();
-        $answer->answer_by = $request->getAnswerBy();
+        $answer->mentor_id = $request->getAnswerBy();
         $answer->save();
         return $this->response->item($answer,new AnswerTransformer());
     }

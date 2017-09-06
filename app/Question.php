@@ -14,4 +14,8 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     protected $table = 'question';
+
+    public function student(){
+        return $this->belongsTo('App\Student');
+    }
 }

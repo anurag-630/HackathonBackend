@@ -13,5 +13,5 @@ interface AddStudentTechnology
 {
     public function getTechnology();
 
-    public function getSenderID();
+    public function getStudentID();
 }

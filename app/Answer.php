@@ -16,6 +16,10 @@ class Answer extends Model
     protected $table = 'answer';
 
     public function mentor(){
-        return $this->belongsToMany('App\Mentor','mentor','answer_by');
+        return $this->belongsTo('App\Mentor');
+    }
+
+    public function student(){
+        return $this->belongsTo('App\Student');
     }
 }

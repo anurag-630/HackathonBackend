@@ -24,6 +24,9 @@ $api->version('v1', function ($api) {
     $api->post('/signup/mentor', 'App\Api\V1\Controllers\MentorController@store');
     $api->post('/question', 'App\Api\V1\Controllers\QuestionController@store');
     $api->post('/answer', 'App\Api\V1\Controllers\AnswerController@store');
+    $api->post('/technology', 'App\Api\V1\Controllers\TechnologyController@store');
+    $api->post('/technology/student', 'App\Api\V1\Controllers\StudentController@addTechnology');
+    $api->post('/technology/all', 'App\Api\V1\Controllers\TechnologyController@index');
     //  $api->post('/technology', 'App\Api\V1\Controllers\StudentTechnologyController@store');
     $api->get('/authenticate/student', 'App\Api\V1\Controllers\StudentController@authenticate');
     $api->get('/authenticate/mentor', 'App\Api\V1\Controllers\MentorController@authenticate');

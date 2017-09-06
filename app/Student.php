@@ -21,8 +21,10 @@ class Student extends Model
         return $this->hasMany('App\Question');
     }
 
-    public function technology()
-    {
-        return $this->hasMany('App\StudentTechnology');
-    }
+//    public function technology()
+//    {
+//        return $this->hasMany('App\Technology');
+//    }
+
+
 }

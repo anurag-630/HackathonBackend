@@ -14,6 +14,8 @@ use League\Fractal\TransformerAbstract;
 
 class QuestionTransformer extends TransformerAbstract
 {
+    public $defaultIncludes = ['student'];
+
     public function transform(Question $question)
     {
         return [
@@ -25,4 +27,11 @@ class QuestionTransformer extends TransformerAbstract
             'updated_at' => $question->updated_at->toDateTimeString()
         ];
     }
+
+    public function includeStudent(Question $question){
+        $student=$question->student;
+
+        return $this->item($student,new StudentDetailTransformer());
+    }
+
 }
