@@ -12,6 +12,7 @@ namespace App\Api\v1\Controllers;
 use App\Api\V1\Requests\TechnologyRequest;
 use App\Api\V1\Transformers\TechnologyTransformer;
 use App\Http\Controllers\Controller;
+use App\StudentTech;
 use App\Technology;
 use Dingo\Api\Routing\Helpers;
 
@@ -28,6 +29,7 @@ class TechnologyController extends Controller
 
     public function store(TechnologyRequest $request){
         $technology=new Technology();
+        $technology->id=$request->addStudentID();
         $technology->technology=$request->addTechnology();
         $technology->save();
         return $this->response->item($technology,new TechnologyTransformer());

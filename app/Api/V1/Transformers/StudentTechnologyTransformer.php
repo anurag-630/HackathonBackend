@@ -9,19 +9,23 @@
 namespace App\Api\V1\Transformers;
 
 
+use App\StudentTech;
+use App\StudentTechnology;
 use App\Technology;
 use League\Fractal\TransformerAbstract;
 
 class StudentTechnologyTransformer extends TransformerAbstract
 {
-    public function transform(Technology $technology)
+
+
+    public function transform(StudentTech $technology)
     {
         return [
-            'tech_id' => (int)$technology->id,
-            'signup_id' => (int)$technology->signup_id,
-            'technology' => $technology->technology,
-            'created_at' => $technology->created_at->toDateTimeString(),
-            'updated_at' => $technology->updated_at->toDateTimeString()
+            'id' => (int)$technology->id,
+            'student_id' => (int)$technology->student_id,
+            'technology_id' => $technology->technology_id
         ];
     }
+
+
 }

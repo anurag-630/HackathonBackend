@@ -12,4 +12,5 @@ namespace App\Contracts;
 interface AddTechnology
 {
     public function addTechnology();
+    public function addStudentID();
 }

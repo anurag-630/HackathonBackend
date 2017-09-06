@@ -14,13 +14,23 @@ use League\Fractal\TransformerAbstract;
 
 class TechnologyTransformer extends TransformerAbstract
 {
+    protected $defaultIncludes = ['student'];
+
     public function transform(Technology $technology)
     {
         return [
-            'tech_id' => (int)$technology->id,
+            'id' => (int)$technology->id,
+            'student_id' => (int)$technology->student_id,
             'technology' => $technology->technology,
             'created_at' => $technology->created_at->toDateTimeString(),
             'updated_at' => $technology->updated_at->toDateTimeString()
+
         ];
+    }
+
+    public function includeStudent(Technology $technology)
+    {
+        $student = $technology->student;
+        return $this->collection($student, new StudentDetailTransformer());
     }
 }

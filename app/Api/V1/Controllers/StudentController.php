@@ -11,6 +11,7 @@ use App\Api\V1\Transformers\StudentDetailTransformer;
 use App\Api\V1\Transformers\StudentTechnologyTransformer;
 use App\Api\V1\Transformers\MentorDetailTransformer;
 use App\Student;
+use App\StudentTechnology;
 use App\Technology;
 use Dingo\Api\Routing\Helpers;
 use Illuminate\Routing\Controller;
@@ -63,9 +64,6 @@ class StudentController extends Controller
         return $this->response->collection($user, new StudentDetailTransformer());
     }
 
-    public function addTechnology(StudentTechnologyRequest $request)
-    {
 
-    }
 
 }

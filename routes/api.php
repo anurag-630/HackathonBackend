@@ -25,18 +25,15 @@ $api->version('v1', function ($api) {
     $api->post('/question', 'App\Api\V1\Controllers\QuestionController@store');
     $api->post('/answer', 'App\Api\V1\Controllers\AnswerController@store');
     $api->post('/technology', 'App\Api\V1\Controllers\TechnologyController@store');
-    $api->post('/technology/student', 'App\Api\V1\Controllers\StudentController@addTechnology');
-    $api->post('/technology/all', 'App\Api\V1\Controllers\TechnologyController@index');
-    //  $api->post('/technology', 'App\Api\V1\Controllers\StudentTechnologyController@store');
+    $api->post('/technology/student', 'App\Api\V1\Controllers\StudentTechnologyController@add');
+    $api->get('/technology/all', 'App\Api\V1\Controllers\TechnologyController@index');
     $api->get('/authenticate/student', 'App\Api\V1\Controllers\StudentController@authenticate');
     $api->get('/authenticate/mentor', 'App\Api\V1\Controllers\MentorController@authenticate');
     $api->get('/question/all', 'App\Api\V1\Controllers\QuestionController@index');
     $api->get('/mentor/all', 'App\Api\V1\Controllers\MentorController@mentor');
     $api->get('/student/all', 'App\Api\V1\Controllers\StudentController@student');
     $api->get('/question/{id}', 'App\Api\V1\Controllers\StudentController@questionsAll');
-    //$api->get('/user/technology/{id}', 'App\Api\V1\Controllers\StudentController@technology');
-    // $api->get('technology/all', 'App\Api\V1\Controllers\StudentTechnologyController@index');
-    //$api->get('technology/{technology}', 'App\Api\V1\Controllers\StudentTechnologyController@user');
+
 
 });
 

@@ -22,7 +22,7 @@ class CreateAnswerTable extends Migration
             $table->unsignedInteger('upvote')->default(0);
             $table->unsignedInteger('downvote')->default(0);
             $table->timestamps();
-            $table->foreign('question_id')->references('ques_id')->on('question')->onDelete('cascade');
+            $table->foreign('question_id')->references('id')->on('question')->onDelete('cascade');
             $table->foreign('mentor_id')->references('id')->on('mentor')->onDelete('cascade');
 
         });

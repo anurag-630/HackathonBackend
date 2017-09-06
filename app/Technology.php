@@ -15,5 +15,7 @@ class Technology extends Model
 {
     protected $table = 'technology';
 
-
+    public function student(){
+        return $this->belongsToMany('App\Student','tech_student','technology_id','student_id');
+    }
 }
