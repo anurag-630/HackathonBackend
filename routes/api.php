@@ -18,6 +18,7 @@ $api = app('Dingo\Api\Routing\Router');
 $api->version('v1', function ($api) {
 //    $api->get('/test', function () {
 //        return 'dingo working';
+    //bvjgnkij
 //    });
 
     $api->post('/signup/student', 'App\Api\V1\Controllers\StudentController@store');
